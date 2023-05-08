@@ -9,4 +9,6 @@ const teamController = new TeamController(teamService);
 
 teamRoutes.get('/', teamController.getAll);
 
+teamRoutes.get('/:id', teamController.getById);
+
 export default teamRoutes;
