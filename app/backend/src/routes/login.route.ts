@@ -12,6 +12,6 @@ const loginController = new LoginController(loginService);
 const validateFields = new LoginFields();
 
 router.post('/', validateFields.checkLoginFields, loginController.loginUser);
-router.get('/role', (_req, res) => res.status(200).json({ role: 'admin' }));
+router.get('/role', loginController.getLoginRole);
 
 export default router;
