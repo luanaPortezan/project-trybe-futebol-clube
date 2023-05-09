@@ -15,8 +15,15 @@ const newMatchValidate = new NewMatchValidate();
 
 const router = express.Router();
 
-router.get('/', matchController.getAll);
-router.patch('/:id/finish', authentication.checkValidToken, matchController.finishMatch);
+router.get(
+  '/',
+  matchController.getAll,
+);
+router.patch(
+  '/:id/finish',
+  authentication.checkValidToken,
+  matchController.finishMatch,
+);
 router.patch(
   '/:id',
   authentication.checkValidToken,

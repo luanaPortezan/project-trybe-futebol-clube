@@ -13,7 +13,15 @@ const loginController = new LoginController(loginService);
 const validateFields = new LoginFields();
 const authentication = new AuthToken();
 
-router.post('/', validateFields.checkLoginFields, loginController.loginUser);
-router.get('/role', authentication.checkValidToken, loginController.getLoginRole);
+router.post(
+  '/',
+  validateFields.checkLoginFields,
+  loginController.loginUser,
+);
+router.get(
+  '/role',
+  authentication.checkValidToken,
+  loginController.getLoginRole,
+);
 
 export default router;
