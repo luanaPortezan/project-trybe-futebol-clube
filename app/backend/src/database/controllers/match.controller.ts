@@ -36,4 +36,9 @@ export default class MatchController {
     }
     return res.status(200).json({ message: 'Updated' });
   };
+
+  insertNewMatch: RequestHandler = async (req: Request, res: Response) => {
+    const result = await this._service.insertNewMatch(req.body);
+    return res.status(201).json(result);
+  };
 }

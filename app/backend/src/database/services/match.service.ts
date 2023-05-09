@@ -1,6 +1,7 @@
 import { ModelStatic } from 'sequelize';
 import Match from '../models/match.model';
 import Team from '../models/team.model';
+import INewMatch from '../../interfaces/newMatch.interface';
 
 export default class MatchService {
   _model: ModelStatic<Match>;
@@ -29,7 +30,7 @@ export default class MatchService {
     return result;
   };
 
-  finishMatch = async (id: number) => {
+  finishMatch = async (id: number):Promise<boolean> => {
     const updated = await this._model.update({
       inProgress: false,
     }, { where: { id } });
@@ -40,7 +41,11 @@ export default class MatchService {
     return true;
   };
 
-  updateMathGoals = async (id:number, homeTeamGoals:number, awayTeamGoals:number) => {
+  updateMathGoals = async (
+    id:number,
+    homeTeamGoals:number,
+    awayTeamGoals:number,
+  ):Promise<boolean> => {
     const updated = await this._model.update({
       homeTeamGoals, awayTeamGoals,
     }, { where: { id } });
@@ -49,5 +54,13 @@ export default class MatchService {
       return false;
     }
     return true;
+  };
+
+  insertNewMatch = async (body:INewMatch) => {
+    const { homeTeamId, awayTeamId, homeTeamGoals, awayTeamGoals } = body;
+    const inserted = await this._model.create({
+      homeTeamId, awayTeamId, homeTeamGoals, awayTeamGoals, inProgress: true,
+    });
+    return inserted;
   };
 }
