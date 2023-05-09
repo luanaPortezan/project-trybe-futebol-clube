@@ -10,23 +10,23 @@ import { teamById, teamsSqlResponse } from './mocks/team.mock';
 chai.use(chaiHttp);
 
 const { expect } = chai;
-describe('Testes de teams', () => {
+describe('Teams test', () => {
   afterEach(sinon.restore);
-  it('Se retorna um array com todos os times', async () => {
+  it('If it returns an array with all the times', async () => {
     sinon.stub(Team, 'findAll').resolves(teamsSqlResponse as Team[])
     const response = await chai.request(app).get('/teams')
     expect(response.status).to.be.eq(200);
     expect(response.body).to.be.deep.eq(teamsSqlResponse);
   });
 
-  it('Se retorna um time dado o seu id', async () => {
+  it('If it returns a team given its id', async () => {
     sinon.stub(Team, 'findByPk').resolves(teamById as Team)
     const response = await chai.request(app).get('/teams/3')
     expect(response.status).to.be.eq(200);
     expect(response.body).to.be.deep.eq(teamById);
   });
 
-  it('Se retorna um erro e status 404 caso não encontre o time por id', async () => {
+  it('if it does not find the team by id, it returns the correct error', async () => {
     sinon.stub(Team, 'findByPk').resolves(null)
     const response = await chai.request(app).get('/teams/999')
     expect(response.status).to.be.eq(404);

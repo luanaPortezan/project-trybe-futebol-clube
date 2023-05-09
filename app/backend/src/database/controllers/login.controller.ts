@@ -9,15 +9,22 @@ export default class LoginController {
   }
 
   loginUser = async (req: Request, res: Response) => {
-    const result = await this._service.login(req.body);
+    const result = await
+    this._service.login(req.body);
     if (result.type) {
-      return res.status(401).json({ message: 'Invalid email or password' });
+      return res.status(401).json({
+        message: 'Invalid email or password',
+      });
     }
-    return res.status(200).json({ token: result.token });
+    return res.status(200).json({
+      token: result.token,
+    });
   };
 
   getLoginRole = async (req: Request, res: Response) => {
     const { user } = req.body;
-    return res.status(200).json({ role: user.role });
+    return res.status(200).json({
+      role: user.role,
+    });
   };
 }
