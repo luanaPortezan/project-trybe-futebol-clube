@@ -10,7 +10,8 @@ export default interface INewMatch {
 interface teamName {
   teamName: string
 }
-export interface IMatches extends Match {
+export interface IMatches
+  extends Match {
   homeTeam: teamName;
   awayTeam: teamName
 }

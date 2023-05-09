@@ -11,6 +11,7 @@ export interface ILeaderboardSqlResult {
 
 }
 
-export interface IFullLeaderboardResult extends ILeaderboardSqlResult {
+export interface IFullLeaderboardResult
+  extends ILeaderboardSqlResult {
   efficiency: string,
 }
