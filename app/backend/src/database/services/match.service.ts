@@ -56,7 +56,7 @@ export default class MatchService {
     return true;
   };
 
-  insertNewMatch = async (body:INewMatch) => {
+  insertNewMatch = async (body:INewMatch):Promise<Match> => {
     const { homeTeamId, awayTeamId, homeTeamGoals, awayTeamGoals } = body;
     const inserted = await this._model.create({
       homeTeamId, awayTeamId, homeTeamGoals, awayTeamGoals, inProgress: true,
