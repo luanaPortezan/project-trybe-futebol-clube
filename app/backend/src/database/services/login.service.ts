@@ -22,15 +22,15 @@ export default class LoginService {
       where: { email }, raw: true,
     });
 
-    if (!userDB
-      || !compareSync(
-        password,
-        userDB.password,
-      )) {
+    if (!userDB || !compareSync(
+      password,
+      userDB.password,
+    )) {
       return { type: 'Unauthorized', token: '' };
     }
     const { password: pass, ...rest } = userDB;
-    const token = this._token.generateToken({ ...rest });
+    const token = this
+      ._token.generateToken({ ...rest });
     return { type: '', token };
   };
 }

@@ -7,16 +7,27 @@ export default class MatchService {
   _model: ModelStatic<Match>;
   _teamModel: ModelStatic<Team>;
 
-  constructor(model: ModelStatic<Match>, teamModel: ModelStatic<Team>) {
+  constructor(
+    model: ModelStatic<Match>,
+    teamModel: ModelStatic<Team>,
+  ) {
     this._model = model;
     this._teamModel = teamModel;
   }
 
-  getAll = async (inProgress: string | undefined):Promise<Match[]> => {
+  getAll = async (
+    inProgress: string | undefined,
+  ):Promise<Match[]> => {
     const result = await this._model.findAll({
       include: [
-        { model: this._teamModel, as: 'homeTeam', attributes: { exclude: ['id'] } },
-        { model: this._teamModel, as: 'awayTeam', attributes: { exclude: ['id'] } },
+        { model: this._teamModel,
+          as: 'homeTeam',
+          attributes: { exclude: ['id'] },
+        },
+        { model: this._teamModel,
+          as: 'awayTeam',
+          attributes: { exclude: ['id'] },
+        },
       ],
     });
     if (inProgress) {
@@ -25,13 +36,19 @@ export default class MatchService {
     return result;
   };
 
-  getById = async (id:number) => {
-    const result = await this._model.findByPk(id);
+  getById = async (
+    id:number,
+  ) => {
+    const result = await
+    this._model.findByPk(id);
     return result;
   };
 
-  finishMatch = async (id: number):Promise<boolean> => {
-    const updated = await this._model.update({
+  finishMatch = async (
+    id: number,
+  ):Promise<boolean> => {
+    const updated = await
+    this._model.update({
       inProgress: false,
     }, { where: { id } });
     const isFound = updated[0];
@@ -46,9 +63,13 @@ export default class MatchService {
     homeTeamGoals:number,
     awayTeamGoals:number,
   ):Promise<boolean> => {
-    const updated = await this._model.update({
-      homeTeamGoals, awayTeamGoals,
-    }, { where: { id } });
+    const updated = await
+    this._model.update({
+      homeTeamGoals,
+      awayTeamGoals,
+    }, {
+      where: { id },
+    });
     const isFound = updated[0];
     if (!isFound) {
       return false;
@@ -56,10 +77,22 @@ export default class MatchService {
     return true;
   };
 
-  insertNewMatch = async (body:INewMatch):Promise<Match> => {
-    const { homeTeamId, awayTeamId, homeTeamGoals, awayTeamGoals } = body;
-    const inserted = await this._model.create({
-      homeTeamId, awayTeamId, homeTeamGoals, awayTeamGoals, inProgress: true,
+  insertNewMatch = async (
+    body:INewMatch,
+  ):Promise<Match> => {
+    const {
+      homeTeamId,
+      awayTeamId,
+      homeTeamGoals,
+      awayTeamGoals,
+    } = body;
+    const inserted = await
+    this._model.create({
+      homeTeamId,
+      awayTeamId,
+      homeTeamGoals,
+      awayTeamGoals,
+      inProgress: true,
     });
     return inserted;
   };
