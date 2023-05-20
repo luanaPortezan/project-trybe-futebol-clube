@@ -50,20 +50,6 @@ Siga as instruções abaixo para executar o projeto em sua máquina local:
    ```
 6. Acesse a aplicação no seu navegador através do endereço `http://localhost:3000`.
 
-## Contribuição
-
-Contribuições são sempre bem-vindas! Se você deseja contribuir para este projeto, siga as etapas abaixo:
-
-1. Fork este repositório.
-2. Crie uma branch com sua feature ou correção de bug: `git checkout -b minha-feature`.
-3. Faça suas alterações e faça commit das mesmas: `git commit -m 'Minha nova feature'`.
-4. Envie para a branch principal: `git push origin minha-feature`.
-5. Envie uma solicitação de pull.
-
-## Licença
-
-Este projeto está licenciado sob a Licença MIT. Consulte o arquivo [LICENSE](./LICENSE) para obter mais informações.
-
 ## Contato
 
 Se você tiver alguma dúvida ou sugestão em relação a este projeto, sinta-se à vontade para entrar em contato:
