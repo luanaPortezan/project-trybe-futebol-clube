@@ -55,5 +55,5 @@ Siga as instruções abaixo para executar o projeto em sua máquina local:
 Se você tiver alguma dúvida ou sugestão em relação a este projeto, sinta-se à vontade para entrar em contato:
 
 - Luana Portezan
-- E-mail: luana.portezan@example.com
-- LinkedIn: [luana-portezan](https://www.linkedin.com/in/luana-portezan)
+- E-mail: luana.portezan@gmail.com
+- LinkedIn: [luanaportezan](https://www.linkedin.com/in/luanaportezan)
