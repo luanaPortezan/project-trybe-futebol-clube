@@ -22,10 +22,22 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:
 - HTML5
 - CSS3
 - JavaScript
-- React
+- TypeScript
+- React.js
 - Node.js
 - Express
-- MongoDB
+- Docker
+- MySQL
+- Sequelize
+- Jest
+- Mocha
+- Chai
+- Sinon
+- JWT
+- Bcrypt
+- Nodemon
+- Eslint
+- Stylelint
 
 ## Como executar o projeto
 
@@ -55,5 +67,5 @@ Siga as instruções abaixo para executar o projeto em sua máquina local:
 Se você tiver alguma dúvida ou sugestão em relação a este projeto, sinta-se à vontade para entrar em contato:
 
 - Luana Portezan
-- E-mail: luana.portezan@gmail.com
+- E-mail: luanaportezan@gmail.com
 - LinkedIn: [luanaportezan](https://www.linkedin.com/in/luanaportezan)
